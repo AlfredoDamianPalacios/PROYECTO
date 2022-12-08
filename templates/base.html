@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>MI WEB| {% block titulo %}{% endblock titulo %}</title>
+        <title>MI WEB | {% block titulo %}{% endblock titulo %}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -18,22 +18,23 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <a class="navbar-brand" href="#!">Asosicion Civil </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'noticias:listar' %}">Noticias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'noticias:listar' %}" target="_blank">Noticias</a></li>
                         <li class="nav-item" style="color: white;">
                         {% if user.is_authenticated %}
-							<strong>Hola {{ user.username }}</strong>
-							<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+                            <a class="nav-link"> Hola {{ user.username }}</a>
+                        </li>
+							<a class="nav-link" id="salida" href="{% url 'logout' %}">LOGOUT</a>
 						{% else %}
-							<a class="nav-link" href="{% url 'login' %}">LOGIN</a>
-							<a class="nav-link" href="{% url 'usuarios:registro' %}">Registrar</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">LOGIN</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'usuarios:registro' %}">Registrar</a></li>
 						{% endif %}
-						</li>
+						
                     </ul>
                 </div>
             </div>
