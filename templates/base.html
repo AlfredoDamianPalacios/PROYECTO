@@ -47,6 +47,9 @@
             <li><a href="{% url 'login' %}">LOGIN</a></li>
             <li><a href="{% url 'usuarios:registro' %}">Registrar</a></li>
             {% endif %}
+            {% if user.is_superuser or user.is_staff %}
+            <li><a href="/admin">Admin</a></li>
+            {% endif %}
         </ul>
         <label id="icon">
             <i class="fas fa-bars"></i>
