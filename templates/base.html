@@ -24,11 +24,6 @@
         });
     </script>
 
-
-
-
-
-
 </head>
 
 <body>
@@ -38,7 +33,7 @@
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-            <li><a href="{% url 'noticias:listar' %}" target="_blank">Noticias</a></li>
+            <li><a href="{% url 'noticias:listar' %}">Noticias</a></li>
             {% if user.is_authenticated %}
             <a> Hola {{ user.username }}</a>
             </li>
