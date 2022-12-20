@@ -2,20 +2,50 @@
 {% load static %}
 {% block title %}Registro{% endblock %}
 
-<main role="main">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-        <form action="" method="post">{% csrf_token %}         
-         <h3 class="mb-4">Registro</h3>
-          {{form.as_p}}
-          <p><input type="submit" class="btn btn-primary btn-block" value="Confirmar"></p>
-        </form>
-      </div>
-    </div>
-  </div>
-</main>
-
 {% block contenido %}
+<div class="caja-login">
+  <div class="login-card-container">
+    <div class="login-card">
+     
+      <div class="login-card-header">
+        <h1>Registarse</h1>
+        <div><b>Para usar la plataforma debe Registrarse</b> </div>
+      </div>
+      <form method="post" class="login-card-form">{%csrf_token%}
+        {{form.errors}}
+        <div class="formulario-registro">
+          <label for="Nombre">Nombre</label>
+          <input type="text" name="first_name" placeholder="Agustin"required>
+      
+  
+          <label for="Apellido">Apellido</label>
+          <input type="text" name="last_name" placeholder="Gonzales"required>
+        
+          <label for="Nombre de Usuario">Nombre De Usuario</label>
+          <input type="text" name="username" placeholder="Nombre de Usuario" required>
+        
+          <label for="Correo Electronico">Correo Electronico</label>
+          <input type="text" name="email" placeholder="correo@gmail.com" required>
+       
+        
+          <label for="Contraseña">Contraseña</label>
+          <input type="password" name="password1" placeholder="Contraseña" required>
+      
+       
+          <label for="Confirmar Contraseña">Confirmar Contraseña</label>
+          <input type="password" name="password2" placeholder="Confirmar Contraseña" required>
+        </div>
+       
+  
+        
+       <input type="submit" value="registrarse">
+       
+      </form>
+      
+    
 
-{%endblock contenido%}
+    </div>
+</div>
+
+{% endblock contenido %}
+
