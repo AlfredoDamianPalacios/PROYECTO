@@ -1,0 +1,31 @@
+BODY {color:rgb(250, 247, 247);
+    background-color: #373634;
+    text-indent:0.5cm}
+
+.pagee nav{
+    margin-left:550px ;
+    margin-top :0px ;
+}
+ .carousel-caption{
+    bottom: 200px;
+ }
+ .carousel-inner img{
+    height:800px;
+    width: 300px;
+ }
+
+ header li a{
+    font-size: 25px;
+ }
+ header .logo{
+    font-size: 25px;
+    margin-left:10px;
+ }
+ header ul{
+   margin-left: 70px;
+ }
+
+ 
+ 
+  
+
