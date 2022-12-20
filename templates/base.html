@@ -29,21 +29,24 @@
 <body>
     <!-- Responsive navbar-->
     <nav>
-        <label class="logo"> Asociacion Civil</label>
+        <label class="logo">
+            <img src="/media/noticias/logo.png" width="120px" helght="80px" >
+            <b>ASOCIACIÓN CIVIL JUNTOS EN ACCIÓN </b>
+        </label>
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-            <li><a href="{% url 'noticias:listar' %}">Noticias</a></li>
+            <li><a class="active" href="{% url 'nosotros' %}">Nosotros</a></li>
+            <li><a class="active" href="{% url 'noticias:listar' %}">Noticias</a></li>
             {% if user.is_authenticated %}
             <a> Hola {{ user.username }}</a>
             </li>
-            <a id="salida" href="{% url 'logout' %}">LOGOUT</a>
+            <a id="salida" class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
             {% else %}
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
-            <li><a href="{% url 'usuarios:registro' %}">Registrar</a></li>
+            <li><a class="active" href="{% url 'login' %}">Iniciar Sesión</a></li>
+            <li><a class="active" href="{% url 'usuarios:registro' %}">Registrarse</a></li>
             {% endif %}
             {% if user.is_superuser or user.is_staff %}
-            <li><a href="/admin">Admin</a></li>
+            <li><a class="active" href="/admin">Admin</a></li>
             {% endif %}
         </ul>
         <label id="icon">
@@ -51,64 +54,62 @@
         </label>
     </nav>
 
-    <!-- Header - set the background image for the header in the line below -->
-    <header class="py-5 bg-image-full"
-        style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-        <div class="text-center my-5">
-            <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg"
-                alt="..." />
-            <h1 class="text-white fs-3 fw-bolder">Full Width Pics</h1>
-            <p class="text-white-50 mb-0">Landing Page Template</p>
-        </div>
-    </header>
-    <!-- Content section-->
-    <section class="py-5">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2>Full Width Backgrounds</h2>
-                    <p class="lead">A single, lightweight helper class allows you to add engaging, full width background
-                        images to sections of your page.</p>
-                    <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting
-                        here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in
-                        the universe.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
     <!-- Image element - set the background image for the header in the line below-->
-    <div class="py-5 bg-image-full" style="background-image: url('unsplash')">
-        <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
-        <div>
+    
             {% block contenido %}
 
             {% endblock contenido %}
+    
+    <!-- Footer-->
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Asociacion<span>Civil</span></h3>
+    
+            <p class="footer-links">
+                <a href="{% url 'home' %}">Home</a>
+                |
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                |
+                <a href="{% url 'noticias:listar' %}">Noticias</a>
+            </p>
+    
+            <p class="footer-company-name">Copyright © 2022 <strong>Terminos y Usos</strong> Todos los Derechos de Autor estan Reservados</p>
         </div>
-        <div style="height: 20rem"></div>
-    </div>
-    <!-- Content section-->
-    <section class="py-5">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2>Engaging Background Images</h2>
-                    <p class="lead">The background images used in this template are sourced from Unsplash and are open
-                        source and free to use.</p>
-                    <p class="mb-0">I can't tell you how many people say they were turned off from science because of a
-                        science teacher that completely sucked out all the inspiration and enthusiasm they had for the
-                        course.</p>
-                </div>
+    
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><a href="https://www.google.com/maps/place/Dorrego+490,+H3700IAJ+Sáenz+Peña,+Chaco/data=!4m2!3m1!1s0x94412ce3c68bc62f:0x8c842a33abd51d5a?sa=X&ved=2ahUKEwiyjLabnoj8AhWurJUCHUP5B04Q8gF6BAgOEAE"></a><span>DORREGO 490</span>
+                    Presidencia Roque Sáenz Peña, Chaco</p>
+            </div>
+    
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>3644673583</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:sandraccpa@hotmail.com">sandraccpa@hotmail.com</a></p>
             </div>
         </div>
-    </section>
-
-
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>Sobre Nosotros</span>
+                <strong>JUNTOS EN ACCION</strong>  Es una Asociación Civil sin fines de lucro formada por ciudadanos al servicio de las personas con discapacidad
+                
+                
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/people/Asociacion-Civil-Juntos-En-Accion/100064567493574/"><i class="fa fa-facebook"></i></a>
+                <a href="mailto:uep143.sp.chaco@gmail.com"><i class="fa-solid fa-inbox"></i></a>
+                <a href="tel: 3644733177"><i class="fa-sharp fa-solid fa-phone"></i></a>
+                <a href="https://www.facebook.com/people/UEP-N%C2%BA-143-CENTRO-DE-FORMACION-INTEGRAL/100063611561590/"><i class="fa-brands fa-facebook-messenger"></i></a>
+               
+            </div>
         </div>
-    </footer>
+    </footer> 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
