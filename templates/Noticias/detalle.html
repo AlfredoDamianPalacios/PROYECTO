@@ -21,14 +21,21 @@
             <input type="submit" value="COMENTAR">
         </form>
         <br><br><br>
+
+
         <h3>COMENTARIOS</h3>
         {% for com in comentarios %}
         {% if user == com.usuario %}
-            <a href="">borrar</a>
+            
+                     <a href="{% url 'noticias:borrar' com.pk %}">BORRAR</a>
+
         {% endif %}
+
         <strong>FECHA:{{com.fecha}}</strong><br>
         <strong>USUARIO:{{com.usuario}}</strong><br>
         <p>{{com.texto}}</p>
         {% endfor %}
         <a href="{% url 'noticias:listar' %}">VOLVER</a>
+
+
 {% endblock contenido %}

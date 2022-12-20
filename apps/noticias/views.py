@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Noticia, Categoria, Comentario
-from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.urls import reverse_lazy, reverse
+
 # Create your views here.
 
 @login_required
@@ -43,7 +46,6 @@ def Detalle_Noticias(request, pk):
 	"""
 @login_required
 def Comentar_Noticia(request):
-
 	com = request.POST.get('comentario',None)
 	usu = request.user
 	noti = request.POST.get('id_noticia', None)# OBTENGO LA PK
@@ -52,7 +54,29 @@ def Comentar_Noticia(request):
 
 	return redirect(reverse_lazy('noticias:detalle', kwargs={'pk': noti}))
 
-   
+#Borrar comentario, espero ...
+@login_required
+def Borrar_Com(request, id):
+	id_noti= None
+	try:
+		coment= Comentario.objects.get(pk = id)
+		id_noti= coment.noticia.pk
+		coment.delete()
+	except Exception as a:
+		print("Comentario no existe")
+	return redirect(reverse_lazy('noticias:detalle', kwargs={'pk': id_noti}))
+
+
+
+
+
+
+
+
+
+
+
+
 #{'nombre':'nicolas', 'apellido':'Tortosa', 'edad':33}
 #EN EL TEMPLATE SE RECIBE UNA VARIABLE SEPARADA POR CADA CLAVE VALOR
 # nombre
